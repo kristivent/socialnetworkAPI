@@ -34,7 +34,9 @@ const reactionSchema = new Schema<IReaction>(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
+      get: function (timestamp: Date): string {
+        return dateFormat(timestamp);
+      },
     },
   },
   {
@@ -56,7 +58,9 @@ const thoughtSchema = new Schema<IThought>(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
+      get: function (timestamp: Date): string {
+        return dateFormat(timestamp);
+      },
     },
     username: {
       type: String,
@@ -74,7 +78,7 @@ const thoughtSchema = new Schema<IThought>(
 );
 
 thoughtSchema.virtual('reactionCount').get(function () {
-  return this.reactions.length;
+  return (this as unknown as IThought).reactions.length;
 });
 
 const Thought = model<IThought>('Thought', thoughtSchema);
