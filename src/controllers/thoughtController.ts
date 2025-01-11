@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { Thought, User } from '../models';
+import Thought from '../models/Thought';
+import User from '../models/User';
 
 const thoughtController = {
   getAllThoughts: async (req: Request, res: Response) => {
