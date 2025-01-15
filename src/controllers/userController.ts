@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import User from '../models/User';
 import Thought from '../models/Thought';
 
-export const getAllUsers = async (req: Request, res: Response) => {
+export const getAllUsers = async (_: Request, res: Response) => {
   try {
     const users = await User.find({}).populate('thoughts').populate('friends');
     res.status(200).json(users);
