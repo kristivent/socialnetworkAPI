@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Thought from '../models/Thought';
 import User from '../models/User';
 
-export const getAllThoughts = async (req: Request, res: Response) => {
+export const getAllThoughts = async (_: Request, res: Response) => {
   try {
     const thoughts = await Thought.find({});
     res.status(200).json(thoughts);
