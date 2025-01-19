@@ -7,7 +7,7 @@ import {
   deleteUser,
   addFriend,
   deleteFriend,
-} from '../../controllers/userController';
+} from '../../controllers/userController.js';
 
 const router = Router();
 
