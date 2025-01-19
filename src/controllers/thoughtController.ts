@@ -41,8 +41,8 @@ export const updateThought = async (req: Request, res: Response) => {
 
 export const deleteThought = async (req: Request, res: Response) => {
   try {
-    const thought = await Thought.findByIdAndDelete(req.params.id);
-    res.status(200).json(thought);
+    await Thought.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Thought deleted successfully.' });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -63,12 +63,12 @@ export const addReaction = async (req: Request, res: Response) => {
 
 export const deleteReaction = async (req: Request, res: Response) => {
   try {
-    const thought = await Thought.findByIdAndUpdate(
+    await Thought.findByIdAndUpdate(
       req.params.thoughtId,
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { new: true }
     );
-    res.status(200).json(thought);
+    res.status(200).json({ message: 'Reaction deleted successfully.' });
   } catch (error) {
     res.status(500).json(error);
   }
