@@ -44,3 +44,4 @@ Use Insomnia to test the API endpoints.
 - DELETE `/api/thoughts/:thoughtId/reactions/:reactionId`
 
 ### Link to video
+https://app.screencastify.com/v3/watch/8qOyQJhGATo1GRm0vwFU
